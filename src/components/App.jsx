@@ -6,6 +6,8 @@ import Footer from "./Footer.jsx"
 import Nav from "./Nav.jsx"
 // asd
 
+const navPills=['All','Design','Mobile','DevOps','Essentials']
+
 function App() {
   return (
     <div id="page-wrap">
@@ -26,7 +28,7 @@ function App() {
           </ul>
         </div>
       </nav> */}
-      <Header />
+      <Header title="Welcome to React"/>
       {/* <header>
         <div className="container">
           <div className="row">
@@ -44,7 +46,7 @@ function App() {
         </div>
       </header> */}
 
-      <Books />
+      <Books navPills={navPills} />
       {/* <section id="books">
         <div className="container">
           <div className="row">

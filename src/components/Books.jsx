@@ -1,7 +1,17 @@
 import React from 'react'
 
-const Books=(props)=>(
-    <section id="books">
+
+
+const Books=(props)=>{
+
+  const navMenu= ()=>props.navPills.map((element) =>(
+    <li>
+           <a href="#">{element}</a>
+        </li>
+  )
+  )
+
+  return  <section id="books">
     <div className="container">
       <div className="row">
         <div className="col-lg-12 text-center">
@@ -11,13 +21,13 @@ const Books=(props)=>(
       </div>
       <div className="row">
         <div className="col-lg-12">
-          <ul className="nav nav-pills text-center">FILTRI</ul>
+          <ul className="nav nav-pills text-center">{navMenu()}</ul>
         </div>
       </div>
       <div className="row book-list">LIBRI</div>
     </div>
   </section>
-)
+}
 
 export default Books
 

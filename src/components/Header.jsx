@@ -1,5 +1,6 @@
 import React from 'react'
 
+
 const Header = (props) => (
   <header>
     <div className="container">
@@ -11,12 +12,14 @@ const Header = (props) => (
             src="/img/logo.png"
           />
           <div className="intro-text">
-            <span className="skills">{props.title}</span>
+            <span className="skills">{props.title} </span>
+            <p>Sono le {new Date().toLocaleTimeString()}</p>
           </div>
         </div>
       </div>
     </div>
   </header>
 )
+
 
 export default Header
