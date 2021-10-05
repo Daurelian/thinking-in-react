@@ -10,10 +10,14 @@ import Menu from './Menu'
 
 
 function App() {
-  const [isOpen, setOpen]= useState(true);
+  const [isOpen, setOpen]= useState(false);
+  
+  function toggleOpen(){
+    setOpen(!isOpen)
+  }
   return (
     <div id="page-wrap">
-      <Nav isOpen={isOpen} setOpen={setOpen} />
+      <Nav toggleOpen={toggleOpen} />
       <Menu isOpen ={isOpen} setOpen={setOpen}/>
       <Header title="Welcome to React"/>
       <Books />

@@ -1,7 +1,7 @@
-import React, { useState} from 'react'
+import React from 'react'
 
 const Menu = (props) => {
-  console.log(props.isOpen)
+  // console.log(props.isOpen)
    if (props.isOpen)
   return <div className="overlay-menu">
     <h4>
