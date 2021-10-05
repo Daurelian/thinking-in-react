@@ -5,7 +5,7 @@ import books from '../mocks/books.js'
 
 const Books=(props)=>{
 
-  const[filter, setFilter] = useState(books.category)
+  
 
   // console.log(books)
 
@@ -21,6 +21,7 @@ const Books=(props)=>{
 
   const navPills=['All','Design','Mobile','DevOps','Essentials']
 
+  const[filter, setFilter] = useState(books.category)
   const booksFilter= ()=>navPills.map((element,index) =>(
     <li key={index}>
            <a onClick={()=>{setFilter(element)}}href="#">{element}</a>

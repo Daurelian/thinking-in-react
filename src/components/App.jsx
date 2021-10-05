@@ -18,7 +18,8 @@ function App() {
   return (
     <div id="page-wrap">
       <Nav toggleOpen={toggleOpen} />
-      <Menu isOpen ={isOpen} setOpen={setOpen}/>
+      {/* <Menu isOpen ={isOpen} setOpen={setOpen}/> */}
+      {isOpen && <Menu toggleOpen={toggleOpen} />}
       <Header title="Welcome to React"/>
       <Books />
       <Abouts />

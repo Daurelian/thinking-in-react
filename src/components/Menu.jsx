@@ -2,11 +2,11 @@ import React from 'react'
 
 const Menu = (props) => {
   // console.log(props.isOpen)
-   if (props.isOpen)
+  //  if (props.isOpen)
   return <div className="overlay-menu">
     <h4>
       Close menu
-      <button onClick={()=>props.setOpen(false)} className="btn-link" style={{ cursor: 'pointer' }}>
+      <button onClick={props.toggleOpen} className="btn-link" style={{ cursor: 'pointer' }}>
         <i className="fa fa-close pull-right" />
       </button>
     </h4>
@@ -22,7 +22,7 @@ const Menu = (props) => {
       </li>
     </ul>
   </div>
-  else return null;
+  // else return null;
 }
 
 export default Menu
