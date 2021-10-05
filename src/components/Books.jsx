@@ -4,8 +4,8 @@ import React from 'react'
 
 const Books=(props)=>{
 
-  const navMenu= ()=>props.navPills.map((element) =>(
-    <li>
+  const navMenu= ()=>props.navPills.map((element,index) =>(
+    <li key={index}>
            <a href="#">{element}</a>
         </li>
   )

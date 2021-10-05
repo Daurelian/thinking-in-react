@@ -1,4 +1,4 @@
-import React from "react"
+import React from 'react'
 
 const Nav= (props)=>(
     <nav className="navbar navbar-default navbar-fixed-top navbar-custom">
