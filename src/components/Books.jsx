@@ -4,7 +4,10 @@ import books from '../mocks/books.js'
 
 
 const Books=(props)=>{
-  console.log(books)
+
+  const[filter, setFilter] = useState(books.category)
+
+  // console.log(books)
 
   const booksList= ()=>books.map((element)=>(
     <div className="col-xs-6 col-sm-3" key={element.id}>
@@ -18,13 +21,13 @@ const Books=(props)=>{
 
   const navPills=['All','Design','Mobile','DevOps','Essentials']
 
-  const navMenu= ()=>navPills.map((element,index) =>(
+  const booksFilter= ()=>navPills.map((element,index) =>(
     <li key={index}>
-           <a href="#">{element}</a>
+           <a onClick={()=>{setFilter(element)}}href="#">{element}</a>
         </li>
   )
   )
-
+console.log(filter);
   return  <section id="books">
     <div className="container">
       <div className="row">
@@ -35,7 +38,7 @@ const Books=(props)=>{
       </div>
       <div className="row">
         <div className="col-lg-12">
-          <ul className="nav nav-pills text-center">{navMenu()}</ul>
+          <ul className="nav nav-pills text-center">{booksFilter()}</ul>
         </div>
       </div>
       <div className="row book-list">{booksList()}</div>
