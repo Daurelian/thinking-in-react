@@ -1,10 +1,10 @@
 import React from 'react'
 
-
+const navPills=['All','Design','Mobile','DevOps','Essentials']
 
 const Books=(props)=>{
 
-  const navMenu= ()=>props.navPills.map((element,index) =>(
+  const navMenu= ()=>navPills.map((element,index) =>(
     <li key={index}>
            <a href="#">{element}</a>
         </li>

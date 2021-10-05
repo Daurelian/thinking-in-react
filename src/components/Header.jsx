@@ -13,7 +13,7 @@ const Header = (props) => (
           />
           <div className="intro-text">
             <span className="skills">{props.title} </span>
-            <p>Sono le {new Date().toLocaleTimeString()}</p>
+            <p>{new Date().toLocaleDateString()}</p>
           </div>
         </div>
       </div>

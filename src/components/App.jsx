@@ -6,7 +6,7 @@ import Footer from "./Footer.jsx"
 import Nav from "./Nav.jsx"
 // asd
 
-const navPills=['All','Design','Mobile','DevOps','Essentials']
+
 
 function App() {
   return (
@@ -46,7 +46,7 @@ function App() {
         </div>
       </header> */}
 
-      <Books navPills={navPills} />
+      <Books />
       {/* <section id="books">
         <div className="container">
           <div className="row">
