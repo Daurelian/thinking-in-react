@@ -37,7 +37,7 @@ function setBooks (e){
   // console.log(" e ", filter)
   if (e==='All') return books;
   else {
- let displayBooks= books.filter(elem => elem.category===e)
+ let displayBooks= books.filter(elem => elem.category===filter)
 //  console.log(displayBooks);
  return displayBooks};}
 
