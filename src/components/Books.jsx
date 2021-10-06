@@ -43,16 +43,18 @@ const Books = (props) => {
   const [newbooks, setBooksList] = useState([])
   function setBooks(e) {
     // console.log(" e ", filter)
+    console.log("prima",newbooks);
     if (e === 'All') {setBooksList(books)
     return newbooks}
     else {
-      let displayBooks = books.filter((elem) => elem.category === filter)
+      let displayBooks = books.filter((elem) => elem.category === e)
        
        setBooksList(displayBooks) 
+      
        return newbooks
     }
   }
-  console.log(newbooks);
+  console.log("dopo",newbooks);
   //-----------------------Fetch di chiamata
  
   
