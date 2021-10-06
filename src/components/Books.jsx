@@ -22,7 +22,7 @@ const[filter, setFilter] = useState('All')
 
   const booksFilter= ()=>navPills.map((element,index) =>(
     <li onClick={()=>{setBooksFilter(element)}} className={element===filter ? "active" : ""} key={index}>
-           <a href="#">{element}</a>
+           <a href="#0">{element}</a>
         </li>
   ))
   console.log("filtri", filter);
@@ -32,12 +32,12 @@ const[filter, setFilter] = useState('All')
 function setBooksFilter(e){
   setFilter(e);
   setBooks(e);}
-  
-function setBooks (filter){
+// Determina i libri da passare alla funzione booksList 
+function setBooks (e){
   // console.log(" e ", filter)
-  if (filter==='All') return books;
+  if (e==='All') return books;
   else {
- let displayBooks= books.filter(elem => elem.category===filter)
+ let displayBooks= books.filter(elem => elem.category===e)
 //  console.log(displayBooks);
  return displayBooks};}
 
