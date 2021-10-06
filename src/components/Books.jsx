@@ -21,11 +21,11 @@ const Books=(props)=>{
 
   const navPills=['All','Design','Mobile','DevOps','Essentials']
 
-  const[filter, setFilter] = useState(books.category)
+  const[filter, setFilter] = useState('All')
 
   const booksFilter= ()=>navPills.map((element,index) =>(
-    <li key={index}>
-           <a onClick={()=>{setFilter(element)}}href="#">{element}</a>
+    <li onClick={()=>{setFilter(element)}} className={element===filter ? "active" : ""} key={index}>
+           <a href="#">{element}</a>
         </li>
   ))
 console.log(filter);
