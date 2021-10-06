@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import axios from 'axios'
+import React, { useState, useEffect } from 'react'
 import books from '../mocks/books.js'
 
 const Books = (props) => {
@@ -39,16 +40,33 @@ const Books = (props) => {
     setBooks(e)
   }
   //---------------Determina i libri da passare alla funzione booksList
+  const [newbooks, setBooksList] = useState([])
   function setBooks(e) {
     // console.log(" e ", filter)
-    if (e === 'All') return books
+    if (e === 'All') {setBooksList(books)
+    return newbooks}
     else {
       let displayBooks = books.filter((elem) => elem.category === filter)
-      //  console.log(displayBooks);
-      return displayBooks
+       
+       setBooksList(displayBooks) 
+       return newbooks
     }
   }
-
+  console.log(newbooks);
+  //-----------------------Fetch di chiamata
+ 
+  
+  async function fetchBooks(){
+    const result= await axios.get (`http://localhost:9000/books`);
+    // console.log(result);
+    setBooksList(result.data);
+    
+  }
+  useEffect(()=>{
+    fetchBooks() ;
+  },[]);
+  // console.log(newbooks);
+  
   //-----------------------Return della funzione madre
   return (
     <section id="books">
@@ -64,7 +82,8 @@ const Books = (props) => {
             <ul className="nav nav-pills text-center">{booksFilter()}</ul>
           </div>
         </div>
-        <div className="row book-list">{booksList(setBooks(filter))}</div>
+        {/* <div className="row book-list">{booksList(setBooks(filter))}</div> */}
+        <div className="row book-list">{booksList(newbooks)}</div>
       </div>
     </section>
   )
