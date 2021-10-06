@@ -4,31 +4,44 @@ import books from '../mocks/books.js'
 
 
 const Books=(props)=>{
-
-  
-
-  // console.log(books)
-
-  const booksList= ()=>books.map((element)=>(
+// console.log(books)
+// Crea lista libri
+  const booksList= (e)=>e.map((element)=>(
     <div className="col-xs-6 col-sm-3" key={element.id}>
     <div className="thumbnail">
       <img alt="" className="img-responsive" src={element.cover} />
     </div>
   </div>
   ))
+  
+// Setta i filtri
+const navPills=['All','Design','Mobile','DevOps','Essentials']
 
-
-
-  const navPills=['All','Design','Mobile','DevOps','Essentials']
-
-  const[filter, setFilter] = useState('All')
+const[filter, setFilter] = useState('All')
 
   const booksFilter= ()=>navPills.map((element,index) =>(
-    <li onClick={()=>{setFilter(element)}} className={element===filter ? "active" : ""} key={index}>
+    <li onClick={()=>{setBooksFilter(element)}} className={element===filter ? "active" : ""} key={index}>
            <a href="#">{element}</a>
         </li>
   ))
-console.log(filter);
+  console.log("filtri", filter);
+
+
+
+function setBooksFilter(e){
+  setFilter(e);
+  setBooks(e);
+ 
+}
+function setBooks (filter){
+  // console.log(" e ", filter)
+  if (filter==='All') return books;
+  else {
+ let displayBooks= books.filter(elem => elem.category===filter)
+//  console.log(displayBooks);
+ return displayBooks};
+ 
+}
 
   return  <section id="books">
     <div className="container">
@@ -43,7 +56,7 @@ console.log(filter);
           <ul className="nav nav-pills text-center">{booksFilter()}</ul>
         </div>
       </div>
-      <div className="row book-list">{booksList()}</div>
+      <div className="row book-list">{booksList(setBooks(filter))}</div>
     </div>
   </section>
 }
