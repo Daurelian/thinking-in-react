@@ -5,7 +5,8 @@ import books from '../mocks/books.js'
 
 const Books=(props)=>{
 // console.log(books)
-// Crea lista libri
+
+//-------------------------Crea lista libri
   const booksList= (e)=>e.map((element)=>(
     <div className="col-xs-6 col-sm-3" key={element.id}>
     <div className="thumbnail">
@@ -14,7 +15,7 @@ const Books=(props)=>{
   </div>
   ))
   
-// Setta i filtri
+//----------------------Setta i filtri
 const navPills=['All','Design','Mobile','DevOps','Essentials']
 
 const[filter, setFilter] = useState('All')
@@ -27,22 +28,20 @@ const[filter, setFilter] = useState('All')
   console.log("filtri", filter);
 
 
-
+//---------------------------Associa i Filtri ai Libri
 function setBooksFilter(e){
   setFilter(e);
-  setBooks(e);
- 
-}
+  setBooks(e);}
+  
 function setBooks (filter){
   // console.log(" e ", filter)
   if (filter==='All') return books;
   else {
  let displayBooks= books.filter(elem => elem.category===filter)
 //  console.log(displayBooks);
- return displayBooks};
- 
-}
+ return displayBooks};}
 
+//-----------------------Return della funzione madre
   return  <section id="books">
     <div className="container">
       <div className="row">
