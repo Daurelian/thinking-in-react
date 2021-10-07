@@ -41,13 +41,13 @@ const Books = (props) => {
   }
   //---------------Determina i libri da passare alla funzione booksList
   const [newbooks, setBooksList] = useState([])
-  function setBooks(e) {
+  const setBooks=async(e)=> {
     // console.log(" e ", filter)
-    console.log("prima",newbooks);
-    if (e === 'All') {setBooksList(books)
-    return newbooks}
+    // console.log("prima",newbooks);
+    const result= await axios.get (`http://localhost:9000/books`);
+    if (e === 'All') return setBooksList(result.data)
     else {
-      let displayBooks = books.filter((elem) => elem.category === e)
+      let displayBooks = result.data.filter((elem) => elem.category === e)
        
        setBooksList(displayBooks) 
       
